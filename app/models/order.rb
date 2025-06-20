@@ -1,4 +1,6 @@
 class Order < ApplicationRecord
+  CODE_PREFIX = 'INV-00000000'
+
   has_many :order_details, dependent: :destroy
   has_many :products, through: :order_details
 
@@ -9,6 +11,13 @@ class Order < ApplicationRecord
     if: :total_price?
 
   validate :must_have_order_detail
+
+  after_create :add_custom_id
+
+  def add_custom_id
+    self.invoice_no = generate_code(CODE_PREFIX, id)
+    self.save
+  end
 
   def must_have_order_detail
     if order_details.empty? || order_details.all?(&:marked_for_destruction?)
