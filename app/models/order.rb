@@ -12,6 +12,14 @@ class Order < ApplicationRecord
     numericality: { :only_integer => false },
     if: :total_price?
 
+  scope :search, ->(keyword) {
+    where("invoice_no ILIKE :keyword", keyword: "%#{keyword}%")
+  }
+
+  scope :sortBy, ->(sort_by_key, sort_by_order) {
+    order(sort_by_key => sort_by_order)
+  }
+
   after_create :add_custom_id
 
   def add_custom_id
