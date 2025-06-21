@@ -9,6 +9,8 @@ import Logout from '@/views/user-session/Logout.vue'
 import ProductsView from '@/views/products/ProductsView.vue'
 import ProductView from '@/views/products/ProductView.vue'
 
+import OrdersView from '@/views/orders/OrdersView.vue'
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -32,6 +34,12 @@ const router = createRouter({
           path: '',
           name: 'main',
           component: HomeView,
+          meta: { requiresAuth: true, showNav: true, layout: 'DefaultLayout' },
+        },
+        {
+          path: 'orders',
+          name: 'orders',
+          component: OrdersView,
           meta: { requiresAuth: true, showNav: true, layout: 'DefaultLayout' },
         },
         {

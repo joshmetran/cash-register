@@ -67,3 +67,7 @@ a,
 .bg-lightblue {
   background-color: #fbfbff !important;
 }
+
+.v-snackbar__actions .v-btn--icon .v-icon {
+  color: #fff !important;
+}

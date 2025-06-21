@@ -119,7 +119,7 @@ function initSections() {
       id: 3,
       name: 'Orders',
       icon: 'mdi-shopping-outline',
-      // route: { name: 'orders' },
+      route: { name: 'orders' },
       type: 'link',
       active: false,
     },
