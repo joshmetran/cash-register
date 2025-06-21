@@ -1,0 +1,69 @@
+.theme--light.v-data-table.item-data-input.item-data-input-edit
+  > .v-data-table__wrapper
+  > table
+  > thead
+  > tr
+  > th:last-child {
+  color: rgba(0, 0, 0, 0.6) !important;
+}
+
+.theme--light.v-data-table.item-data-input.item-data-input-edit
+  > .v-data-table__wrapper
+  > table
+  > tbody
+  > tr
+  > td {
+  padding: 0 4px;
+}
+
+@media (max-width: 575.98px) {
+  .sm-hidden {
+    display: none;
+  }
+}
+
+a,
+.nav-link {
+  color: #005eb8;
+}
+
+.v-btn--size-large {
+  font-size: 0.875rem !important;
+}
+
+.table-search {
+  max-width: 300px;
+}
+
+.min-width-300 {
+  width: 300px !important;
+}
+
+.max-width-300 {
+  max-width: 300px !important;
+}
+
+.pending-color {
+  background-color: #a3a8ad !important;
+}
+
+.primary-color {
+  color: #005eb8 !important;
+}
+
+.grey-color {
+  color: rgba(0, 0, 0, 0.38) !important;
+}
+
+.btn-yellow {
+  background-color: #fcb812 !important;
+  color: #fff !important;
+}
+
+.btn-color {
+  color: #005eb8 !important;
+}
+
+.bg-lightblue {
+  background-color: #fbfbff !important;
+}
