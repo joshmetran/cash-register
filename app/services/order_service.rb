@@ -24,7 +24,7 @@ class OrderService
         product = find_item(products, order_detail[:product_id])
         qty = order_detail[:qty].to_i
 
-        raise ActiveRecord::RecordInvalid.new(@order), "Product with ID #{order_detail[:product_id]} not found" unless product                
+        raise ActiveRecord::RecordInvalid.new(@order), "Product with ID #{order_detail[:product_id]} not found" unless product
         raise ActiveRecord::RecordInvalid.new(@order), 'Quantity must be greater than 0' if qty <= 0
 
         product_name = product.name
