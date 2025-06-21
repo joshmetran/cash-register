@@ -1,7 +1,7 @@
 class Order < ApplicationRecord
   CODE_PREFIX = 'INV-00000000'
 
-  has_many :order_details, dependent: :destroy
+  has_many :order_details, -> { select(:id, :order_id, :product_id, :qty, :actual_qty, :price, :total_price, :remarks) }, dependent: :destroy
   has_many :products, through: :order_details
 
   accepts_nested_attributes_for :order_details, allow_destroy: true
