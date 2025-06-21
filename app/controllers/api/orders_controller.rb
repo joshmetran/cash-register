@@ -1,4 +1,19 @@
 class Api::OrdersController < ApplicationController
+  
+  def index
+    orders = Order.sortBy(
+      params[:sort_by_key] || 'created_at',
+      params[:sort_by_order] || 'DESC'
+    )
+
+    orders = orders.search(params[:search]) unless params[:search].nil?
+
+    @pagy, @orders = pagy(orders, **paginate_options)
+    render :index, locals: { orders: @orders, pagy: @pagy }, status: :ok
+  rescue Pagy::OverflowError
+    render json: { error: "Page number out of bounds" }, status: :bad_request
+  end
+
   def create
     order_service = OrderService.new(order_params)
 
