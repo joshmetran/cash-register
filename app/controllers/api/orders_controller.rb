@@ -24,6 +24,13 @@ class Api::OrdersController < ApplicationController
     end
   end
 
+  def show
+    @order = Order.includes(:products).find(params[:id])
+    if stale?(last_modified: @order.updated_at)
+      render json: @order
+    end
+  end
+
   private
 
   def order_params
