@@ -47,22 +47,8 @@
         <v-skeleton-loader type="table-row@10"></v-skeleton-loader>
       </template>
 
-      <template v-slot:item.is_buy_one_take_one="{ item }">
-        <v-chip v-if="item.is_buy_one_take_one" color="success" size="small">Yes</v-chip>
-        <v-chip v-else color="grey" size="small">No</v-chip>
-      </template>
-
-      <template v-slot:item.can_bulk_purchase="{ item }">
-        <v-chip v-if="item.can_bulk_purchase" color="success" size="small">Yes</v-chip>
-        <v-chip v-else color="grey" size="small">No</v-chip>
-      </template>
-
       <template v-slot:item.total_price="{ item }">
         {{ formatCurrency(item.total_price) }}
-      </template>
-
-      <template v-slot:item.bulk_purchase_price="{ item }">
-        {{ formatCurrency(item.bulk_purchase_price) }}
       </template>
 
       <template v-slot:item.created_at="{ item }">
@@ -71,6 +57,16 @@
 
       <template v-slot:item.updated_at="{ item }">
         {{ formatDateTime(item.updated_at) }}
+      </template>
+
+      <template v-slot:item.action="{ item }">   
+        <v-btn
+          class="me-1"
+          density="comfortable"
+          icon="mdi-magnify"
+          variant="text"
+          @click="$router.push({ name: 'order', params: { id: item.id } })"
+        ></v-btn>
       </template>
     </v-data-table-server>
   </v-card>
@@ -85,8 +81,9 @@ import { formatDateTime, formatCurrency } from '@/utils/index'
 const headers = ref([
   { title: 'Invoice No.', align: 'start', sortable: true, key: 'invoice_no' },
   { title: 'Total Amount', align: 'end', sortable: true, key: 'total_price' },
-  { title: 'Created Date', key: 'created_at', sortable: true, align: 'center' },
-  { title: 'Updated Date', key: 'updated_at', sortable: true, align: 'center' },
+  { title: 'Created Date', key: 'created_at', sortable: true, align: 'center', width: '180' },
+  { title: 'Updated Date', key: 'updated_at', sortable: true, align: 'center', width: '180' },
+  { title: '', key: 'action', sortable: false, align: 'start', width: '50' },
 ])
 
 const search = ref('')

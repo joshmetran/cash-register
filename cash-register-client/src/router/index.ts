@@ -10,6 +10,7 @@ import ProductsView from '@/views/products/ProductsView.vue'
 import ProductView from '@/views/products/ProductView.vue'
 
 import OrdersView from '@/views/orders/OrdersView.vue'
+import OrderView from '@/views/orders/OrderView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -41,6 +42,22 @@ const router = createRouter({
           name: 'orders',
           component: OrdersView,
           meta: { requiresAuth: true, showNav: true, layout: 'DefaultLayout' },
+        },
+        {
+          path: 'orders',
+          meta: { requiresAuth: true, layout: 'DefaultLayout', showNav: true },
+          children: [
+            {
+              path: '',
+              name: 'orders',
+              component: OrdersView
+            },
+            {
+              path: ':id',
+              name: 'order',
+              component: OrderView
+            },
+          ],
         },
         {
           path: 'products',
