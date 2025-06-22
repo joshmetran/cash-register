@@ -6,14 +6,16 @@
           <v-card-title class="flex-grow-1 ps-0"> Products </v-card-title>
 
           <v-text-field
-            v-model="search"
-            @input="handleSearch"
+            v-model="search"            
             class="inp-filter"
             placeholder="Search"
+            clearable
             append-inner-icon="mdi-magnify"
             density="compact"
             variant="outlined"
             hide-details
+            @click:clear="handleSearch"
+            @input="handleSearch"
           ></v-text-field>
         </v-card-text>
         <v-container>
@@ -301,7 +303,7 @@ async function proceedOrder() {
   try {
     const { data } = await axios.post(`orders`, payload)
 
-    alertStore.show(`Transaction #${data.invoice_no} completed successfully. Thank you!`)
+    alertStore.show(`Transaction #${data.invoice_no} has been successfully completed. Thank you!`)
     cartItems.value = []
   } catch (err) {
     console.error('err:', err)
