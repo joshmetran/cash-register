@@ -2,6 +2,7 @@ json.products @products do |product|
   json.id product.id
   json.code product.code
   json.name product.name
+  json.img_url product.img_url
   json.price product.price
   json.is_buy_one_take_one product.is_buy_one_take_one
   json.can_bulk_purchase product.can_bulk_purchase
