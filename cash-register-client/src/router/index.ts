@@ -34,7 +34,7 @@ const router = createRouter({
           path: '',
           name: 'main',
           component: HomeView,
-          meta: { requiresAuth: true, showNav: true, layout: 'DefaultLayout' },
+          meta: { requiresAuth: true, showNav: true, layout: 'BlankLayout' },
         },
         {
           path: 'orders',
@@ -62,23 +62,11 @@ const router = createRouter({
         },
         {
           path: 'home',
-          meta: { requiresAuth: true, layout: 'DefaultLayout' },
+          meta: { requiresAuth: true, layout: 'BlankLayout' },
           children: [
             {
               path: '',
               name: 'home',
-              component: HomeView,
-              meta: { showNav: true },
-            },
-            {
-              path: 'new',
-              name: 'new_article',
-              component: HomeView,
-              meta: { showNav: true },
-            },
-            {
-              path: 'update/:slug',
-              name: 'updateArticle',
               component: HomeView,
               meta: { showNav: true },
             },

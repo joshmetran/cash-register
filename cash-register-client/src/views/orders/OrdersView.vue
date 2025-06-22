@@ -71,7 +71,7 @@
 
       <template v-slot:item.updated_at="{ item }">
         {{ formatDateTime(item.updated_at) }}
-      </template>      
+      </template>
     </v-data-table-server>
   </v-card>
 </template>
@@ -85,8 +85,8 @@ import { formatDateTime, formatCurrency } from '@/utils/index'
 const headers = ref([
   { title: 'Invoice No.', align: 'start', sortable: true, key: 'invoice_no' },
   { title: 'Total Amount', align: 'end', sortable: true, key: 'total_price' },
-  { title: 'Created Date', key: 'created_at',sortable: true,  align: 'center' },
-  { title: 'Updated Date', key: 'updated_at',sortable: true,  align: 'center' }
+  { title: 'Created Date', key: 'created_at', sortable: true, align: 'center' },
+  { title: 'Updated Date', key: 'updated_at', sortable: true, align: 'center' },
 ])
 
 const search = ref('')

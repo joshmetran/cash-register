@@ -55,6 +55,10 @@ a,
   color: rgba(0, 0, 0, 0.38) !important;
 }
 
+.black-color {
+  color: rgba(0, 0, 0, 0.95) !important;
+}
+
 .btn-yellow {
   background-color: #fcb812 !important;
   color: #fff !important;
@@ -70,4 +74,8 @@ a,
 
 .v-snackbar__actions .v-btn--icon .v-icon {
   color: #fff !important;
+}
+
+.centered-input input {
+  text-align: center;
 }
