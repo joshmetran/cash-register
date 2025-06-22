@@ -3,7 +3,7 @@ class Api::ProductsController < ApplicationController
 
   def index
     products = Product.sortBy(
-      params[:sort_by_key] || 'name',
+      params[:sort_by_key] || 'id',
       params[:sort_by_order] || 'ASC'
     )
 
