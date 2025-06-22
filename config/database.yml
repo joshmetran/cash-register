@@ -84,10 +84,7 @@ test:
 #
 production:
   primary: &primary_production
-    <<: *default
-    database: cash_register_app_production
-    username: cash_register_app
-    password: <%= ENV["CASH_REGISTER_APP_DATABASE_PASSWORD"] %>
+    <<: *default    
   cache:
     <<: *primary_production
     database: cash_register_app_production_cache
