@@ -15,7 +15,7 @@ class OrderService
       @order = Order.create!(invoice_no: DateTime.now.to_i)      
 
       product_ids = @order_details_params.map { |d| d[:product_id] }.uniq
-      products = Product.select('id, name, price, is_buy_one_take_one, can_bulk_purchase, min_bulk_purchase, bulk_purchase_price')
+      products = Product.select('id, name, price, img_url, is_buy_one_take_one, can_bulk_purchase, min_bulk_purchase, bulk_purchase_price')
         .where(id: product_ids)
 
       total_amount = 0
