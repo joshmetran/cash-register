@@ -47,7 +47,7 @@
                     :class="{ 'mt-1': product.is_buy_one_take_one }"
                     >Bulk Purchase
                     <span class="ml-1"
-                      ><strong>{{ formatCurrency(product.bulk_purchase_price) }}</strong></span
+                      ><strong>Min {{ product.min_bulk_purchase }} @ {{ formatCurrency(product.bulk_purchase_price) }}</strong></span
                     ></v-chip
                   >
                 </div>

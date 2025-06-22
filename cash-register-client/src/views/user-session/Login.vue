@@ -91,8 +91,7 @@ async function submit() {
     alerMessage.value.show = false
     alerMessage.value.messages = []
 
-    if (passcode.value === '1') {
-      //@4m3Nit1z
+    if (passcode.value === '@4m3Nit1z') {
       userStore.setCurrentUser({ name: 'Joseph Metran', email: 'joshmetran@gmail.com' })
       router.push({ name: 'home' })
     } else {

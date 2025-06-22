@@ -3,7 +3,7 @@ import { ref } from 'vue'
 
 export const useUserStore = defineStore('user', () => {
   const signedIn = ref(localStorage.getItem('signedIn') || '0')
-  const currentUser = ref(JSON.parse(localStorage.getItem('currentUser')) || {})
+  const currentUser = ref(getCurrentUser())
 
   const goTo = ref('')
 
@@ -19,7 +19,8 @@ export const useUserStore = defineStore('user', () => {
   }
 
   function getCurrentUser() {
-    return JSON.parse(localStorage.getItem('currentUser'))
+    let user = localStorage.getItem('currentUser')
+    return user ? JSON.parse(user) : {}
   }
 
   function unsetCurrentUser() {

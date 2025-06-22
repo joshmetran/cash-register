@@ -1,0 +1,6 @@
+export const CONFIRMATION_TYPE = {
+  SUCCESS: 'SUCCESS',
+  WARNING: 'WARNING',
+  DELETE: 'DELETE',
+  INFO: 'INFO',
+}

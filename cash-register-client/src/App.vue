@@ -134,5 +134,6 @@ function initSections() {
   ]
 }
 
+userStore.getCurrentUser()
 initSections()
 </script>
