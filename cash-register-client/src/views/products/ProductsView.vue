@@ -57,6 +57,12 @@
         <v-chip v-else color="grey" size="small">No</v-chip>
       </template>
 
+      <template v-slot:item.img_url="{ item }">
+        <v-avatar size="x-large" class="my-1">
+          <v-img :src="item.img_url"></v-img>
+        </v-avatar>
+      </template>
+
       <template v-slot:item.price="{ item }">
         {{ formatCurrency(item.price) }}
       </template>
@@ -96,36 +102,37 @@ import { debounce } from 'lodash'
 import { formatDateTime, formatCurrency } from '@/utils/index'
 
 const headers = ref([
+  { title: '', align: 'start', sortable: false, key: 'img_url', width: '80' },
   { title: 'Code', align: 'start', sortable: true, key: 'code' },
   { title: 'Name', align: 'start', sortable: true, key: 'name' },
-  { title: 'Price', align: 'end', sortable: true, key: 'price' },
+  { title: 'Price', align: 'end', sortable: true, key: 'price', width: '150' },
   {
     title: 'Buy One Take One',
     align: 'center',
-    sortable: true,
+    sortable: false,
     key: 'is_buy_one_take_one',
-    minWidth: '170',
+    minWidth: '100',
   },
   {
     title: 'Bulk Purchase',
     align: 'center',
-    sortable: true,
+    sortable: false,
     key: 'can_bulk_purchase',
-    width: '144',
+    width: '100',
   },
   {
     title: 'Min. Bulk Purchase',
     align: 'center',
-    sortable: true,
+    sortable: false,
     key: 'min_bulk_purchase',
-    width: '180',
+    width: '100',
   },
   {
     title: 'Bulk Purchase Price',
     align: 'end',
-    sortable: true,
+    sortable: false,
     key: 'bulk_purchase_price',
-    width: '180',
+    width: '160',
   },
   { title: '', key: 'action', sortable: false, align: 'start', width: '70' },
 ])
