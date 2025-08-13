@@ -42,7 +42,7 @@ gem "thruster", require: false
 
 gem 'dotenv-rails', :groups => [:development, :test, :production]
 gem 'active_model_serializers'
-gem 'pagy', '~> 9.3'
+gem 'pagy', '~> 9.4'
 gem 'rack-cors'
 
 group :development, :test do
